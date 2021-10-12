@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Generate SSL if the folder is not found.
+if [ ! -d '/etc/nginx/ssl' ]; then
+  mkdir /etc/nginx/ssl
+  openssl req -new -x509 -newkey rsa:2048 -nodes -out /etc/nginx/ssl/cert.crt -keyout /etc/nginx/ssl/cert.key -subj "/C=US/ST=California/L=Los Angeles/O=My Business/OU=My Unit/CN=*"
+fi
